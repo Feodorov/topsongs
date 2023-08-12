@@ -1,7 +1,7 @@
 package com.kfedorov.topsongs.repositories
 
 import com.kfedorov.topsongs.model.{Track, TrackLogEntry}
-import org.apache.spark.sql.{Dataset, Encoders, SparkSession}
+import org.apache.spark.sql.{Dataset, Encoders, SaveMode, SparkSession}
 
 trait Repository {
   def read(path: String): Dataset[TrackLogEntry]
@@ -19,8 +19,8 @@ case class SparkRepository(sparkSession: SparkSession) extends Repository {
       .as[TrackLogEntry]
 
   override def write(path: String, dataset: Dataset[Track]): Unit =
-    dataset
-      .write
+    dataset.write
+      .mode(SaveMode.Overwrite)
       .option("sep", "\t")
       .option("header", true)
       .csv(path)
