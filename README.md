@@ -21,6 +21,7 @@ Result will appear in the `./output` folder within the working folder.
 
 ## Assumptions
 * This example is built to run with spark local mode. Master is hardcoded to `local[*]`
+* There might be some docker-specific quirks related to running it on Windows. Unfortunately I don't have a Windows machine to check.
 * Code is not optimized. Probably there is a faster way to do it.
 * Sessions and songs are selected randomly in case of ties.
 * Tracks without a title are not considered.
