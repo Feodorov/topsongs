@@ -29,3 +29,4 @@ Result will appear in the `./output` folder within the working folder.
 * Add remote cluster support
 * More comprehensive test suite
 * Set up linter checks on commit
+* CI integration
